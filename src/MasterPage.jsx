@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { MoreVertical, Plus, Search } from "lucide-react";
+import { Plus, Search } from "lucide-react";
 import MasterDataTable from "./MasterDataTable";
 import ActionMenu from "./ActionMenu";
 
@@ -45,23 +45,77 @@ export default function MasterPage({ masterName }) {
   const [query, setQuery] = useState("");
   const rows = masterData[masterName] || [];
   const columns = [
-    { accessorKey: "code", header: "Code" },
-    { accessorKey: "name", header: "Name" },
+    {
+      accessorKey: "code",
+      header: "Code",
+      cell: ({ getValue }) => (
+        <strong style={{ color: "var(--purple-primary)" }}>{getValue()}</strong>
+      ),
+    },
+    {
+      accessorKey: "name",
+      header: "Name",
+      cell: ({ getValue }) => <strong>{getValue()}</strong>,
+    },
     { accessorKey: "details", header: "Details" },
-    { accessorKey: "status", header: "Status", cell: ({ getValue }) => <span className="master-status">{getValue()}</span> },
-    { id: "action", header: "Action", enableSorting: false, cell: ({ row }) => <ActionMenu itemName={row.original.name} /> },
+    {
+      accessorKey: "status",
+      header: "Status",
+      cell: ({ getValue }) => (
+        <span className={`master-status ${getValue()?.toLowerCase()}`}>
+          {getValue()}
+        </span>
+      ),
+    },
+    {
+      id: "action",
+      header: "Action",
+      enableSorting: false,
+      cell: ({ row }) => (
+        <div style={{ display: "flex", justifyContent: "center" }}>
+          <ActionMenu itemName={row.original.name} />
+        </div>
+      ),
+    },
   ];
-  const tableData = rows.map(([code, name, details, status]) => ({ code, name, details, status }));
+  const tableData = rows.map(([code, name, details, status]) => ({
+    code,
+    name,
+    details,
+    status,
+  }));
 
   return (
     <section className="master-page">
       <div className="master-header">
-        <div><h1>{masterName}</h1><p>Manage and organize your {masterName.toLowerCase().replace(" master", "")} records</p></div>
-        <button className="primary-btn"><Plus size={16} /> Add New</button>
+        <div>
+          <h1>{masterName}</h1>
+          <p>
+            Manage, search, and organize your {masterName.toLowerCase().replace(" master", "")} database records
+          </p>
+        </div>
+        <button className="primary-btn">
+          <Plus size={16} /> Add New {masterName.replace(" Master", "")}
+        </button>
       </div>
       <div className="master-card card">
-        <div className="master-toolbar"><div className="product-search"><Search size={17} /><input value={query} onChange={(event) => setQuery(event.target.value)} placeholder={`Search ${masterName.toLowerCase()}...`} /></div><span>{tableData.length} records</span></div>
-        <MasterDataTable columns={columns} data={tableData} globalFilter={query} onGlobalFilterChange={setQuery} />
+        <div className="master-toolbar">
+          <div className="product-search">
+            <Search size={17} />
+            <input
+              value={query}
+              onChange={(event) => setQuery(event.target.value)}
+              placeholder={`Search ${masterName.toLowerCase()}...`}
+            />
+          </div>
+          <span>{tableData.length} records</span>
+        </div>
+        <MasterDataTable
+          columns={columns}
+          data={tableData}
+          globalFilter={query}
+          onGlobalFilterChange={setQuery}
+        />
       </div>
     </section>
   );

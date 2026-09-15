@@ -4,6 +4,7 @@ import {
   Users, UserCheck, UserX, CircleDollarSign
 } from "lucide-react";
 import ActionMenu from "./ActionMenu";
+import { AnimatedNumber } from "./AnimatedUtils";
 
 const customers = [
   ["John Smith","john@example.com","+1 (555) 123-4567","12","$459.95","12 Sept 2025","Active","JS"],
@@ -39,10 +40,10 @@ export default function CustomersPage({ onExport, onDateClick, dateRange }) {
       </div>
 
       <div className="customer-kpis">
-        <div className="customer-kpi"><div className="customer-icon purple"><Users size={20}/></div><span>Total Customers</span><strong>5,000</strong><small>▲ 3.1% <em>vs Last Week</em></small></div>
-        <div className="customer-kpi"><div className="customer-icon green"><UserCheck size={20}/></div><span>Active Customers</span><strong>4,000</strong><small>▲ 2.4% <em>vs Last Week</em></small></div>
-        <div className="customer-kpi"><div className="customer-icon yellow"><UserX size={20}/></div><span>Inactive Customers</span><strong>1,000</strong><small className="down">▼ 1.2% <em>vs Last Week</em></small></div>
-        <div className="customer-kpi"><div className="customer-icon pink"><CircleDollarSign size={20}/></div><span>Total Revenue</span><strong>$68,760</strong><small>▲ 4.4% <em>vs Last Week</em></small></div>
+        <div className="customer-kpi"><div className="customer-icon purple"><Users size={20}/></div><span>Total Customers</span><strong><AnimatedNumber value="5,000" delay={50} /></strong><small>▲ 3.1% <em>vs Last Week</em></small></div>
+        <div className="customer-kpi"><div className="customer-icon green"><UserCheck size={20}/></div><span>Active Customers</span><strong><AnimatedNumber value="4,000" delay={100} /></strong><small>▲ 2.4% <em>vs Last Week</em></small></div>
+        <div className="customer-kpi"><div className="customer-icon yellow"><UserX size={20}/></div><span>Inactive Customers</span><strong><AnimatedNumber value="1,000" delay={150} /></strong><small className="down">▼ 1.2% <em>vs Last Week</em></small></div>
+        <div className="customer-kpi"><div className="customer-icon pink"><CircleDollarSign size={20}/></div><span>Total Revenue</span><strong><AnimatedNumber value="$68,760" delay={200} /></strong><small>▲ 4.4% <em>vs Last Week</em></small></div>
       </div>
 
       <div className="customer-table-card card">

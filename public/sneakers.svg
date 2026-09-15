@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48">
+  <rect width="48" height="48" rx="10" fill="#f1f3f7"/>
+  <!-- Modern sleek sneaker profile -->
+  <path d="M10 28 C12 24 16 23 20 23 L25 18 C26 17 28 17 30 18 L36 21 C38 22 39 24 38 26 L38 31 C38 32 37 33 36 33 L12 33 C10 33 9 31 10 28 Z" fill="#e4e4e7" stroke="#d4d4d8" stroke-width="0.5"/>
+  <!-- Sole -->
+  <path d="M9 31 L39 31 C40 31 40 34 39 34.5 L9 34.5 C8 34.5 8 31 9 31 Z" fill="#ffffff" stroke="#cbd5e1" stroke-width="0.8"/>
+  <!-- Accent swoosh / wave -->
+  <path d="M18 27 C24 24 29 27 34 26" fill="none" stroke="#71717a" stroke-width="1.5" stroke-linecap="round"/>
+  <!-- Laces -->
+  <line x1="24" y1="21" x2="27" y2="23" stroke="#52525b" stroke-width="1.2" stroke-linecap="round"/>
+  <line x1="26" y1="19" x2="29" y2="21" stroke="#52525b" stroke-width="1.2" stroke-linecap="round"/>
+</svg>
