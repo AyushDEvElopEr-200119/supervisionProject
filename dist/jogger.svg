@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" width="48" height="48">
+  <rect width="48" height="48" rx="10" fill="#f1f3f7"/>
+  <!-- Men's Jogger Pants -->
+  <path d="M16 12 L32 12 L31 22 L30 35 L26 35 L24 24 L22 35 L18 35 L17 22 Z" fill="#18181b" stroke="#27272a" stroke-width="0.5"/>
+  <!-- Drawstring / Waistband -->
+  <line x1="16" y1="14" x2="32" y2="14" stroke="#3f3f46" stroke-width="1.2"/>
+  <path d="M23 15 L22 18 M25 15 L26 18" stroke="#71717a" stroke-width="1" stroke-linecap="round"/>
+  <!-- Cuffs -->
+  <rect x="18" y="34.5" width="4" height="2" rx="0.5" fill="#3f3f46"/>
+  <rect x="26" y="34.5" width="4" height="2" rx="0.5" fill="#3f3f46"/>
+</svg>
